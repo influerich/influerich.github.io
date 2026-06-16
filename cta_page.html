@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CTA Pages</title>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+    (function() { emailjs.init({ publicKey: '8xPEh57EmmiGxtN9m' }); })();
+  </script>
+<style>
+    :root {
+      --bg: #120d11;
+      --panel: #171116;
+      --panel-2: #1d1418;
+      --soft: rgba(255,255,255,0.04);
+      --soft-2: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.10);
+      --text: #f6efe8;
+      --muted: rgba(246,239,232,0.72);
+      --muted-2: rgba(246,239,232,0.56);
+      --gold: #d8b58b;
+      --wine: #7d1530;
+      --rose: #b77785;
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(125,21,48,.24), transparent 26%),
+        radial-gradient(circle at bottom left, rgba(216,181,139,.08), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── no language switcher on this page ── */
+
+    .wrap {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .page-divider {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 48px 0 32px;
+    }
+
+    .page-divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .page-divider-label {
+      font-size: 11px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .page {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 48px 32px 28px;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(circle at top right, rgba(125,21,48,.22), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,.02), transparent 55%);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      border: 1px solid rgba(216,181,139,.26);
+      background: rgba(255,255,255,.04);
+      border-radius: 999px;
+      padding: 8px 14px;
+      text-transform: uppercase;
+      letter-spacing: .24em;
+      font-size: 11px;
+      color: #e0c09a;
+    }
+
+    h1 {
+      margin: 18px 0 0;
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 1.04;
+      letter-spacing: -.03em;
+    }
+
+    .lead {
+      margin-top: 22px;
+      max-width: 900px;
+      font-size: clamp(18px, 2vw, 22px);
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .content {
+      padding: 30px 32px 36px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .section, .card {
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .kicker {
+      font-size: 11px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    p { margin: 0; color: var(--muted); }
+
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .chip-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+      padding: 12px 14px;
+      font-size: 14px;
+      color: rgba(255,255,255,.82);
+    }
+
+    .form-grid {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,.9);
+      font-weight: 500;
+    }
+
+    select option {
+      background: #171116;
+      color: rgba(255,255,255,.92);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.92);
+      border-radius: 18px;
+      padding: 14px 16px;
+      font: inherit;
+      outline: none;
+      height: 52px;
+    }
+
+    input::placeholder, textarea::placeholder { color: rgba(255,255,255,.28); }
+    textarea { min-height: 120px; height: auto; resize: vertical; }
+
+    .footer-row {
+      margin-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .note {
+      max-width: 760px;
+      color: var(--muted-2);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .slot-list {
+      margin-top: 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .slot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      text-align: left;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.84);
+    }
+
+    .slot span:last-child { color: var(--gold); font-weight: 600; }
+
+    .highlight {
+      margin-top: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(125,21,48,.28);
+      background: #1a1318;
+      padding: 20px;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      border: 0;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: .2s ease;
+    }
+
+    .pill.primary {
+      background: var(--gold);
+      color: #21171a;
+      box-shadow: 0 10px 30px rgba(216,181,139,.22);
+    }
+
+    .custom-select {
+      position: relative;
+    }
+
+    .custom-select-trigger {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.92);
+      border-radius: 18px;
+      padding: 14px 16px;
+      font: inherit;
+      cursor: pointer;
+      height: 52px;
+      user-select: none;
+    }
+
+    .custom-select.open .custom-select-trigger {
+      border-color: var(--gold);
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    .custom-select-trigger svg {
+      flex-shrink: 0;
+      color: rgba(255,255,255,.4);
+      transition: transform .2s ease;
+    }
+
+    .custom-select.open .custom-select-trigger svg {
+      transform: rotate(180deg);
+    }
+
+    .custom-select-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0; right: 0;
+      background: #1d1418;
+      border: 1px solid var(--gold);
+      border-radius: 18px;
+      overflow: hidden;
+      z-index: 100;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+
+    .custom-select.open .custom-select-dropdown { display: block; }
+
+    .custom-select-option {
+      padding: 13px 16px;
+      font-size: 15px;
+      color: rgba(255,255,255,.28);
+      cursor: pointer;
+      transition: background .15s, color .15s;
+    }
+
+    .custom-select-option:hover {
+      background: rgba(216,181,139,.10);
+      color: var(--gold);
+    }
+
+    .custom-select-option.selected {
+      color: var(--gold);
+      background: rgba(216,181,139,.08);
+    }
+
+    .booking-card {
+      position: sticky;
+      top: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .btn-3d {
+      width: 100%;
+      padding: 16px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      color: #1a1210;
+      background: linear-gradient(180deg, #e8c99a 0%, #c9a070 100%);
+      box-shadow:
+        0 6px 0 #8a6030,
+        0 8px 16px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.35);
+      transform: translateY(0);
+      transition: transform .1s ease, box-shadow .1s ease;
+      position: relative;
+    }
+
+    .btn-3d:hover {
+      background: linear-gradient(180deg, #edd3a8 0%, #d4aa7e 100%);
+      box-shadow:
+        0 7px 0 #8a6030,
+        0 10px 20px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-3d:active {
+      box-shadow:
+        0 2px 0 #8a6030,
+        0 4px 8px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.2);
+      transform: translateY(4px);
+    }
+
+    .booking-cta {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .cal-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .cal-month-label {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .cal-year { color: var(--gold); }
+
+    .cal-nav { display: flex; gap: 4px; }
+
+    .cal-nav-btn {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background .15s, color .15s;
+    }
+
+    .cal-nav-btn:hover { background: rgba(216,181,139,.12); color: var(--gold); }
+
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+
+    .cal-dow {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted-2);
+      padding: 4px 0 8px;
+      letter-spacing: .04em;
+    }
+
+    .cal-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+
+    .cal-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 14px;
+      cursor: pointer;
+      color: var(--text);
+      transition: background .15s, color .15s;
+      border: 1.5px solid transparent;
+    }
+
+    .cal-day:hover:not(.disabled):not(.empty) {
+      background: rgba(216,181,139,.14);
+      color: var(--gold);
+    }
+
+    .cal-day.available {
+      background: rgba(216,181,139,.18);
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .cal-day.selected {
+      background: var(--gold);
+      color: #1a1210;
+      font-weight: 700;
+    }
+
+    .cal-day.today { border-color: var(--gold); }
+
+    .cal-day.disabled, .cal-day.past {
+      color: rgba(255,255,255,.18);
+      cursor: default;
+    }
+
+    .cal-day.empty { cursor: default; }
+
+    .cal-times {
+      margin-top: 20px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cal-times.visible { display: flex; }
+
+    .cal-times-label {
+      font-size: 13px;
+      color: var(--muted-2);
+      margin-bottom: 4px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .cal-time-btn {
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(216,181,139,.3);
+      background: rgba(216,181,139,.07);
+      color: var(--gold);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+    }
+
+    .cal-time-btn:hover {
+      background: rgba(216,181,139,.18);
+      border-color: var(--gold);
+    }
+
+    .cal-time-btn.confirmed {
+      background: var(--gold);
+      color: #1a1210;
+      border-color: var(--gold);
+    }
+
+    .req { color: var(--gold); margin-left: 2px; }
+
+    .field input.error,
+    .field textarea.error {
+      border-color: var(--rose);
+      background: rgba(183,119,133,.07);
+    }
+
+    .form-error {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(183,119,133,.4);
+      background: rgba(183,119,133,.08);
+      color: var(--rose);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .form-success {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(216,181,139,.3);
+      background: rgba(216,181,139,.08);
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hidden { display: none; }
+
+    @media (max-width: 900px) {
+      .calendly-wrap { grid-template-columns: 1fr; }
+      .cal-info { border-right: none; border-bottom: 1px solid var(--border); }
+      .booking-card { position: static; }
+      .footer-row { flex-direction: column; align-items: stretch; }
+      .wrap { width: min(1200px, calc(100% - 20px)); }
+      .hero, .content { padding-left: 20px; padding-right: 20px; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .chip-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+<!-- APPLICATION PAGE -->
+<section class="page">
+<div class="hero">
+<h1 data-de="Bewirb dich für eine Zusammenarbeit" data-en="Apply to Work Together" data-es="Solicita trabajar juntos" data-hu="Jelentkezz, hogy együttműködjünk" data-ru="Подать заявку на сотрудничество">Apply to Work Together</h1>
+<p class="lead" data-de="Dies ist für Creator mit echtem Publikumsvertrauen, starker Traktion und dem Ehrgeiz, ein Premium-Einnahmensystem hinter ihrer Marke aufzubauen. Du bringst das Publikum, die Aufmerksamkeit und das Vertrauen. Ich baue das Angebot, die Positionierung, den Kundenpfad und die Monetarisierungsstruktur dahinter." data-en="This is for creators with real audience trust, strong traction, and the ambition to build a premium revenue system behind their brand. You bring the audience, the attention, and the trust. I build the offer, positioning, customer path, and monetization structure behind it." data-es="Esto es para creadores con confianza real de audiencia, fuerte tracción y la ambición de construir un sistema de ingresos premium detrás de su marca. Tú traes la audiencia, la atención y la confianza. Yo construyo la oferta, el posicionamiento, el camino del cliente y la estructura de monetización detrás." data-hu="Kiérdemelted a közönséged bizalmát. Itt az idő beárazni. Erős közönséggel rendelkező influenszerekkel dolgozom együtt: megtervezem a prémium ajánlatot, a pozicionálást és a vásárlói utat, amire a közönséged már most vevő lenne" data-ru="Это для создателей с реальным доверием аудитории, сильной тракцией и амбицией построить премиум систему доходов за своим брендом. Ты приводишь аудиторию, внимание и доверие. Я строю предложение, позиционирование, путь клиента и структуру монетизации за ним.">This is for creators with real audience trust, strong traction, and the ambition to build a premium revenue system behind their brand.</p>
+</div>
+<div class="content">
+<div class="section">
+<div class="kicker" data-de="Was als nächstes passiert" data-en="What happens next" data-es="Qué sucede a continuación" data-hu="Mi történik ezután" data-ru="Что происходит дальше">What happens next</div>
+<h2 class="section-title" data-de="Was nach deiner Bewerbung passiert" data-en="What happens after you apply" data-es="Qué pasa después de aplicar" data-hu="Mi történik a jelentkezés után" data-ru="Что происходит после подачи заявки">What happens after you apply</h2>
+<p data-de="Sobald du dich bewirbst, ist das Ziel zu prüfen, ob hinter deinem Publikum eine echte Monetarisierungsmöglichkeit besteht. Wenn es eine Übereinstimmung gibt, ist der nächste Schritt ein Gespräch über Publikumsqualität, Monetarisierungspotenzial, die Art des Premium-Angebots, das zu deiner Marke passt, und ob es sinnvoll ist, dies gemeinsam aufzubauen." data-en="Once you apply, the goal is to review whether there is a real monetization opportunity behind your audience. If there is a fit, the next step is a conversation about audience quality, monetization potential, the kind of premium offer that fits your brand, and whether it makes sense to build this together." data-es="Una vez que apliques, el objetivo es revisar si hay una oportunidad de monetización real detrás de tu audiencia. Si hay un encaje, el siguiente paso es una conversación sobre calidad de audiencia, potencial de monetización, el tipo de oferta premium que encaja con tu marca, y si tiene sentido construir esto juntos." data-hu="Megnézzük, milyen lehetőség rejlik valójában a közönségedben – és hogy ott van-e egy valódi monetizációs potenciál. Beszélünk a közönség minőségéről, a bevétel növelő lehetőségekről, valamint hogy milyen prémium ajánlat illik a márkádhoz – és arról, hogy érdemes-e ezt együtt felépíteni." data-ru="После подачи заявки цель — проверить, есть ли реальная возможность монетизации за твоей аудиторией. Если есть соответствие, следующий шаг — разговор о качестве аудитории, потенциале монетизации, виде премиум предложения, подходящего твоему бренду, и о том, имеет ли смысл строить это вместе.">Once you apply, the goal is to review whether there is a real monetization opportunity behind your audience.</p>
+</div>
+<div class="card" style="background: linear-gradient(180deg, #171116, #20161a);">
+<div class="kicker" data-de="Bewerbungsformular" data-en="Application form" data-es="Formulario de solicitud" data-hu="Jelentkezési űrlap" data-ru="Форма заявки">Application form</div>
+<h2 class="section-title" data-de="Fülle die kurze Bewerbung unten aus" data-en="Complete the short application below" data-es="Completa la breve solicitud a continuación" data-hu="Töltsd ki az alábbi rövid jelentkezési lapot" data-ru="Заполни краткую заявку ниже">Complete the short application below</h2>
+<p data-de="Das Ziel ist einfach: zu verstehen, ob dein Publikum, deine Positionierung und deine aktuelle Traktion ein Premium-Monetarisierungssystem unterstützen." data-en="The goal is simple: to understand whether your audience, positioning, and current traction support a premium monetization system." data-es="El objetivo es simple: entender si tu audiencia, posicionamiento y tracción actual soportan un sistema de monetización premium." data-hu="A cél egyszerű: megérteni, hogy a közönséged, pozicionálásod ésaz eddigi eredményeid lehetővé teszik-e egy prémium monetizációs rendszer bevezetését." data-ru="Цель проста: понять, поддерживают ли твоя аудитория, позиционирование и текущая тракция премиум систему монетизации.">The goal is simple: to understand whether your audience, positioning, and current traction support a premium monetization system.</p>
+<form class="form-grid" id="appForm">
+<div class="field">
+<label data-de="Vollständiger Name" data-en="Full Name" data-es="Nombre completo" data-hu="Teljes név" data-ru="Полное имя">Full Name <span class="req">*</span></label>
+<input data-de-placeholder="Gib deine Antwort ein" data-en-placeholder="Enter your answer" data-es-placeholder="Ingresa tu respuesta" data-hu-placeholder="Add meg a válaszod" data-ru-placeholder="Введи свой ответ" id="f_name" placeholder="Enter your answer"/>
+</div>
+<div class="field">
+<label data-de="E-Mail-Adresse" data-en="Email Address" data-es="Correo electrónico" data-hu="E-mail cím" data-ru="Эл. почта">Email Address <span class="req">*</span></label>
+<input data-de-placeholder="Gib deine Antwort ein" data-en-placeholder="Enter your answer" data-es-placeholder="Ingresa tu respuesta" data-hu-placeholder="Add meg a válaszod" data-ru-placeholder="Введи свой ответ" id="f_email" placeholder="Enter your answer" type="email"/>
+</div>
+<div class="field">
+<label data-de="Instagram-Link" data-en="Instagram Link" data-es="Enlace de Instagram" data-hu="Instagram link" data-ru="Ссылка Instagram">Instagram Link <span class="req">*</span></label>
+<input data-de-placeholder="Gib deine Antwort ein" data-en-placeholder="Enter your answer" data-es-placeholder="Ingresa tu respuesta" data-hu-placeholder="Add meg a válaszod" data-ru-placeholder="Введи свой ответ" id="f_instagram" placeholder="Enter your answer"/>
+</div>
+<div class="field">
+<label data-de="Was ist deine Nische oder dein Einflussbereich?" data-en="What is your niche or area of influence?" data-es="¿Cuál es tu nicho o área de influencia?" data-hu="Mi a szakterületed ? Milyen réspiaccal foglalkozol?" data-ru="Какова твоя ниша или область влияния?">What is your niche or area of influence?</label>
+<input data-de-placeholder="Gib deine Antwort ein" data-en-placeholder="Enter your answer" data-es-placeholder="Ingresa tu respuesta" data-hu-placeholder="Add meg a válaszod" data-ru-placeholder="Введи свой ответ" id="f_niche" placeholder="Enter your answer"/>
+</div>
+<div class="field">
+<label data-de="Wie groß ist dein Publikum gerade?" data-en="How large is your audience right now?" data-es="¿Qué tan grande es tu audiencia ahora?" data-hu="Mekkora a közönséged jelenleg?" data-ru="Насколько велика твоя аудитория сейчас?">How large is your audience right now?</label>
+<input data-de-placeholder="Followerzahl, Hauptplattform, ungefähres Engagement" data-en-placeholder="Follower count, main platform, approximate engagement" data-es-placeholder="Seguidores, plataforma principal, engagement aproximado" data-hu-placeholder="Követők száma, fő platform, hozzávetőleges elköteleződés" data-ru-placeholder="Число подписчиков, основная платформа, вовлечённость" id="f_audience" placeholder="Follower count, main platform, approximate engagement"/>
+</div>
+<div class="field">
+<label data-de="Wie würdest du das Vertrauen deines Publikums beschreiben?" data-en="How would you describe your audience trust?" data-es="¿Cómo describirías la confianza de tu audiencia?" data-hu="Hogyan jellemzed a közönséged bizalmát?" data-ru="Как бы ты описал доверие своей аудитории?">How would you describe your audience trust?</label>
+<input data-de-placeholder="Gib deine Antwort ein" data-en-placeholder="Enter your answer" data-es-placeholder="Ingresa tu respuesta" data-hu-placeholder="Add meg a válaszod" data-ru-placeholder="Введи свой ответ" id="f_trust" placeholder="Enter your answer"/>
+</div>
+<div class="field">
+<label data-de="Verkaufst du derzeit etwas?" data-en="Do you currently sell anything?" data-es="¿Vendes algo actualmente?" data-hu="Értékesítesz jelenleg bármit?" data-ru="Ты сейчас что-нибудь продаёшь?">Do you currently sell anything?</label>
+<div class="custom-select" id="sellSelect">
+<div class="custom-select-trigger" onclick="toggleDropdown('sellSelect')">
+<span class="custom-select-value" id="sellValue" style="color: rgba(255,255,255,.28);">No</span>
+<svg fill="none" height="16" viewbox="0 0 16 16" width="16"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<div class="custom-select-dropdown" id="sellDropdown">
+<div class="custom-select-option" data-value="no" onclick="selectOption('sellSelect', this)">No</div>
+<div class="custom-select-option" data-value="yes-unstructured" onclick="selectOption('sellSelect', this)">Yes, but it is not structured properly</div>
+<div class="custom-select-option" data-value="yes-improve" onclick="selectOption('sellSelect', this)">Yes, and I want to improve / premiumize it</div>
+</div>
+</div>
+</div>
+<div class="field">
+<label data-de="Warum glaubst du, dass dein Publikum Monetarisierungspotenzial hat?" data-en="Why do you feel your audience has monetization potential?" data-es="¿Por qué crees que tu audiencia tiene potencial de monetización?" data-hu="Miért érzed úgy, hogy a közönségedben van még további potenciálj?" data-ru="Почему ты считаешь, что у твоей аудитории есть потенциал монетизации?">Why do you feel your audience has monetization potential?</label>
+<input data-de-placeholder="Gib deine Antwort ein" data-en-placeholder="Enter your answer" data-es-placeholder="Ingresa tu respuesta" data-hu-placeholder="Add meg a válaszod" data-ru-placeholder="Введи свой ответ" id="f_potential" placeholder="Enter your answer"/>
+</div>
+<div class="field full">
+<label data-de="Gibt es noch etwas, das ich vor der Prüfung deiner Bewerbung wissen sollte?" data-en="Anything else I should know before reviewing your application?" data-es="¿Algo más que deba saber antes de revisar tu solicitud?" data-hu="Van még valami, amit tudnom kellene a jelentkezésed átnézése előtt?" data-ru="Есть ли что-то ещё, что мне следует знать перед рассмотрением заявки?">Anything else I should know before reviewing your application?</label>
+<textarea data-de-placeholder="Füge hier relevanten Kontext hinzu" data-en-placeholder="Add any relevant context here" data-es-placeholder="Agrega cualquier contexto relevante aquí" data-hu-placeholder="Adj meg mindenfontoos információt itt" data-ru-placeholder="Добавь любой релевантный контекст здесь" id="f_anything" placeholder="Add any relevant context here"></textarea>
+</div>
+</form>
+<div class="form-error hidden" id="formError"></div>
+<div class="form-success hidden" data-de="✓ Bewerbung erfolgreich gesendet!" data-en="✓ Application sent successfully!" data-es="✓ ¡Solicitud enviada con éxito!" data-hu="✓ Jelentkezés sikeresen elküldve!" data-ru="✓ Заявка успешно отправлена!" id="formSuccess">✓ Application sent successfully!</div>
+</div>
+</div>
+<div class="content">
+<div class="grid-3" style="grid-template-columns: 1fr;">
+<div class="card">
+<div class="kicker" data-de="Audit" data-en="Audit" data-es="Auditoría" data-hu="Audit" data-ru="Аудит">Audit</div>
+<h2 class="section-title" data-de="Wofür dieses Audit ist" data-en="What this audit is for" data-es="Para qué es esta auditoría" data-hu="Mire való ez az audit" data-ru="Для чего этот аудит">What this audit is for</h2>
+<p data-de="Diese Sitzung soll bestimmen, ob dein Publikum ein Premium-Angebot unterstützen kann, welche Art von Monetarisierungsweg zu deiner Marke passt und was derzeit zwischen Aufmerksamkeit und Einnahmen fehlt." data-en="This session is designed to determine whether your audience can support a premium offer, what kind of monetization path fits your brand, and what is currently missing between attention and revenue." data-es="Esta sesión está diseñada para determinar si tu audiencia puede sostener una oferta premium, qué tipo de camino de monetización encaja con tu marca y qué falta actualmente entre atención e ingresos." data-hu="Ez a konzultáció megmutatja, hogy a közönséged hajlandó-e megfizetni egy prémium ajánlatot, milyen monetizációs modell illik igazán a márkádhoz, és mi hiányzik ahhoz, hogy megfelelő bevételed legyen." data-ru="Эта сессия предназначена для определения того, может ли твоя аудитория поддержать премиум предложение, какой путь монетизации подходит твоему бренду и чего сейчас не хватает между вниманием и доходом.">This session is designed to determine whether your audience can support a premium offer.</p>
+</div>
+<div class="card">
+<div class="kicker" data-de="Audit" data-en="Audit" data-es="Auditoría" data-hu="Audit" data-ru="Аудит">Audit</div>
+<h2 class="section-title" data-de="Was wir uns anschauen" data-en="What we look at" data-es="Lo que analizamos" data-hu="Amit vizsgálunk" data-ru="Что мы изучаем">What we look at</h2>
+<p data-de="Wir überprüfen Publikumsvertrauen, Engagement-Qualität, Nachfragesignale, Angebotspotenzial, Premium-Positionierungspassung, Monetarisierungsbereitschaft und die strategischen Lücken zwischen Aufmerksamkeit und Verkauf." data-en="We review audience trust, engagement quality, demand signals, offer potential, premium positioning fit, monetization readiness, and the strategic gaps between attention and sales." data-es="Revisamos la confianza de la audiencia, calidad del engagement, señales de demanda, potencial de oferta, encaje de posicionamiento premium, preparación para monetización y las brechas estratégicas entre atención y ventas." data-hu="Megvizsgáljuk a közönség bizalmát és az elköteleződés minőségét, feltárjuk a keresleti jelzéseket, felmérjük az ajánlat potenciálját és a prémium pozicionálás és monetizáció lehetőségét." data-ru="Мы изучаем доверие аудитории, качество вовлечённости, сигналы спроса, потенциал предложения, соответствие премиум позиционированию, готовность к монетизации и стратегические пробелы между вниманием и продажами.">We review audience trust, engagement quality, demand signals and the strategic gaps between attention and sales.</p>
+</div>
+<div class="card">
+<div class="kicker" data-de="Audit" data-en="Audit" data-es="Auditoría" data-hu="Audit" data-ru="Аудит">Audit</div>
+<h2 class="section-title" data-de="Was du mitnimmst" data-en="What you leave with" data-es="Con qué te vas" data-hu="Milyen információkkal leszel gazdagabb" data-ru="С чем ты уйдёшь">What you leave with</h2>
+<p data-de="Du gehst mit einem klareren Bild davon, ob dein Publikum kommerziell bereit ist, welche Art von Angebot am sinnvollsten ist und ob es sinnvoll ist, gemeinsam voranzugehen." data-en="You leave with a clearer view of whether your audience is commercially ready, what kind of offer makes the most sense, and whether it makes sense to move forward together." data-es="Te vas con una visión más clara de si tu audiencia está comercialmente lista, qué tipo de oferta tiene más sentido y si tiene sentido avanzar juntos." data-hu="Tisztább képet kapsz arról, hogy mekkora bevételi potenciállal számolhatsz, milyen ajánlat lenne optimális, és érdemes-e együtt továbblépni." data-ru="Ты уйдёшь с более чётким пониманием того, готова ли твоя аудитория коммерчески, какое предложение наиболее разумно и имеет ли смысл двигаться вперёд вместе.">You leave with a clearer view of whether your audience is commercially ready.</p>
+</div>
+</div>
+<div class="grid-2">
+<div class="card booking-card" style="background: linear-gradient(180deg, #171116, #20161a);">
+<div class="kicker" data-de="Buchung" data-en="Booking" data-es="Reserva" data-hu="Foglalás" data-ru="Запись">Booking</div>
+<h2 class="section-title" data-de="Wähle eine Zeit für dein Monetarisierungs-Audit" data-en="Choose a time for your monetization audit" data-es="Elige un horario para tu auditoría de monetización" data-hu="Válassz időpontot a monetizációs auditodhoz" data-ru="Выбери время для аудита монетизации">Choose a time for your monetization audit</h2>
+<p data-de="Dies ist ein strategisches Erstgespräch, kein Druckanruf. Kein Hype. Kein generisches Funnel-Gerede. Nur ein klarer Blick darauf, ob es eine echte Premium-Chance hinter deinem Publikum gibt." data-en="This is a strategic first conversation, not a pressure call. No hype. No generic funnel talk. Just a clear look at whether there is a real premium opportunity behind your audience." data-es="Esta es una primera conversación estratégica, no una llamada de presión. Sin hype. Sin charla genérica de funnel. Solo una mirada clara a si hay una oportunidad premium real detrás de tu audiencia." data-hu="Ez egy stratégiai első beszélgetés, minden kötelezettség nélkül. Nincs marketing, nincs vásárlási kényszer, nincs időnyomás. A cél, hogy tiszta képet kapjunk arról, hogy mekkora bevételi potenciál rejlik a közönségedben." data-ru="Это стратегический первый разговор, а не давящий звонок. Без хайпа. Без общих разговоров о воронках. Просто чёткий взгляд на то, есть ли реальная премиум возможность за твоей аудиторией.">This is a strategic first conversation, not a pressure call.</p>
+<div class="cal-inner">
+<div class="cal-header-row" style="margin-top: 20px;">
+<span class="cal-month-label"><span id="calMonthName"></span> <span class="cal-year" id="calYear"></span></span>
+<div class="cal-nav">
+<button class="cal-nav-btn" onclick="changeMonth(-1)">
+<svg fill="none" height="16" viewbox="0 0 18 18" width="16"><path d="M11 13l-4-4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg>
+</button>
+<button class="cal-nav-btn" onclick="changeMonth(1)">
+<svg fill="none" height="16" viewbox="0 0 18 18" width="16"><path d="M7 5l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg>
+</button>
+</div>
+</div>
+<div class="cal-grid" id="calDowRow" style="margin-top: 12px;">
+<div class="cal-dow">Mon</div><div class="cal-dow">Tue</div><div class="cal-dow">Wed</div>
+<div class="cal-dow">Thu</div><div class="cal-dow">Fri</div><div class="cal-dow">Sat</div><div class="cal-dow">Sun</div>
+</div>
+<div class="cal-days" id="calDays"></div>
+<div class="cal-times" id="calTimes"></div>
+</div>
+<div class="booking-cta">
+<div class="form-error hidden" id="bookError" style="margin-bottom: 12px;"></div>
+<button class="btn-3d" data-de="Audit buchen" data-en="Book an Audit" data-es="Reservar una auditoría" data-hu="Audit foglalása" data-ru="Записаться на аудит" id="bookBtn" onclick="bookAudit()" type="button">Book an Audit</button>
+</div>
+</div>
+<div class="card">
+<div class="kicker" data-de="Sitzungsergebnisse" data-en="Session outcomes" data-es="Resultados de la sesión" data-hu="A munkamenet eredményei" data-ru="Результаты сессии">Session outcomes</div>
+<h2 class="section-title" data-de="Was du mitnimmst" data-en="What you leave with" data-es="Con qué te vas" data-hu="Milyen információkkal leszel gazdagabb" data-ru="С чем ты уйдёшь">What you leave with</h2>
+<div class="chip-grid" style="grid-template-columns: 1fr;">
+<div class="chip" data-de="Ob dein Publikum kommerziell bereit ist" data-en="Whether your audience is commercially ready" data-es="Si tu audiencia está comercialmente lista" data-hu="A közönséged vásárolna-e tőled" data-ru="Готова ли твоя аудитория коммерчески">Whether your audience is commercially ready</div>
+<div class="chip" data-de="Welche Art von Premium-Angebot am sinnvollsten ist" data-en="What type of premium offer makes the most sense" data-es="Qué tipo de oferta premium tiene más sentido" data-hu="Milyen típusú prémium ajánlat a lenne optimális" data-ru="Какой тип премиум предложения наиболее разумен">What type of premium offer makes the most sense</div>
+<div class="chip" data-de="Wo deine Positionierung stark oder schwach ist" data-en="Where your positioning is strong or weak" data-es="Dónde tu posicionamiento es fuerte o débil" data-hu="Hol erős vagy gyenge a pozicionálásod" data-ru="Где твоё позиционирование сильное или слабое">Where your positioning is strong or weak</div>
+<div class="chip" data-de="Was derzeit die Monetarisierung blockiert" data-en="What is currently blocking monetization" data-es="Qué está bloqueando actualmente la monetización" data-hu="Mi akadályozza jelenleg a monetizációt" data-ru="Что сейчас блокирует монетизацию">What is currently blocking monetization</div>
+<div class="chip" data-de="Ob es sinnvoll ist, gemeinsam voranzugehen" data-en="Whether it makes sense to move forward together" data-es="Si tiene sentido avanzar juntos" data-hu="Érdemes-e együtt továbblépni" data-ru="Имеет ли смысл двигаться вперёд вместе">Whether it makes sense to move forward together</div>
+</div>
+<div class="highlight">
+<div class="kicker" data-de="Abschließende Anmerkung" data-en="Final note" data-es="Nota final" data-hu="Zárómegjegyzés" data-ru="Заключительная заметка" style="color: var(--rose);">Final note</div>
+<p data-de="Aufmerksamkeit ohne Struktur bleibt Potenzial. Wenn du bereits Vertrauen aufgebaut hast, ist der nächste Schritt zu verstehen, was dieses Vertrauen tatsächlich werden kann." data-en="Attention without structure stays potential. If you already built trust, the next step is understanding what that trust can actually become." data-es="La atención sin estructura permanece como potencial. Si ya construiste confianza, el siguiente paso es entender en qué puede convertirse realmente esa confianza." data-hu="A struktúra nélküli figyelem csak potenciál marad. Ha már felépítetted a bizalmat, a következő lépés az, hogy megértsd, hogy hozhatod ki belőle a legtöbbet." data-ru="Внимание без структуры остаётся потенциалом. Если ты уже построил доверие, следующий шаг — понять, чем это доверие может стать на самом деле.">Attention without structure stays potential. If you already built trust, the next step is understanding what that trust can actually become.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+    // ── Language system ──
+    let currentLang = 'en';
+    try { currentLang = localStorage.getItem('site_lang') || 'en'; } catch(e) {}
+
+    const MONTHS = {
+      en: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+      es: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+      de: ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
+      ru: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+      hu: ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"]
+    };
+
+    const DAYS = {
+      en: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+      es: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+      de: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
+      ru: ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
+      hu: ["Vasárnap", "Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat"]
+    };
+
+    const DOW_LABELS = {
+      en: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+      es: ['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'],
+      de: ['Mo','Di','Mi','Do','Fr','Sa','So'],
+      ru: ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'],
+      hu: ["Hét", "Kedd", "Szer", "Csüt", "Pén", "Szo", "Vas"]
+    };
+
+    const SELL_OPTIONS = {
+      en: ['No', 'Yes, but it is not structured properly', 'Yes, and I want to improve / premiumize it'],
+      es: ['No', 'Sí, pero no está bien estructurado', 'Sí, y quiero mejorarlo / premiumizarlo'],
+      de: ['Nein', 'Ja, aber es ist nicht richtig strukturiert', 'Ja, und ich möchte es verbessern / premiumisieren'],
+      ru: ['Нет', 'Да, но это не структурировано должным образом', 'Да, и я хочу улучшить / сделать премиум'],
+      hu: ["Nem", "Igen, de nincs megfelelően strukturálva", "Igen, és fejleszteni szeretném"]
+    };
+
+    const FORM_ERRORS = {
+      en: { missing: 'Please fill in the required fields: ', noDate: 'Please select a date from the calendar.', noTime: 'Please select a time slot.', sending: 'Sending…', sent: '✓ Sent', failed: 'Failed to send. Please try again or email balazs@influerich.com directly. (', bookBtn: 'Book an Audit', booked: '— booked' },
+      es: { missing: 'Por favor completa los campos requeridos: ', noDate: 'Por favor selecciona una fecha del calendario.', noTime: 'Por favor selecciona un horario.', sending: 'Enviando…', sent: '✓ Enviado', failed: 'Error al enviar. Inténtalo de nuevo o escribe a balazs@influerich.com. (', bookBtn: 'Reservar una auditoría', booked: '— reservado' },
+      de: { missing: 'Bitte fülle die Pflichtfelder aus: ', noDate: 'Bitte wähle ein Datum aus dem Kalender.', noTime: 'Bitte wähle einen Zeitslot.', sending: 'Wird gesendet…', sent: '✓ Gesendet', failed: 'Senden fehlgeschlagen. Versuche es erneut oder schreibe an balazs@influerich.com. (', bookBtn: 'Audit buchen', booked: '— gebucht' },
+      ru: { missing: 'Пожалуйста, заполни обязательные поля: ', noDate: 'Пожалуйста, выбери дату из календаря.', noTime: 'Пожалуйста, выбери временной слот.', sending: 'Отправка…', sent: '✓ Отправлено', failed: 'Ошибка отправки. Попробуй ещё раз или напиши на balazs@influerich.com. (', bookBtn: 'Записаться на аудит', booked: '— забронировано' },
+      hu: { "missing": "Kérjük, töltsd ki a kötelező mezőket: ", "noDate": "Kérjük, válassz dátumot a naptárból.", "noTime": "Kérjük, válassz időpontot.", "sending": "Küldés…", "sent": "✓ Elküldve", "failed": "Sikertelen küldés. Próbáld újra, vagy írj közvetlenül a balazs@influerich.com címre. (", "bookBtn": "Audit foglalása", "booked": "— foglalt" }
+    };
+
+    const FIELD_NAMES = {
+      en: { name: 'Full Name', email: 'Email Address', instagram: 'Instagram Link' },
+      es: { name: 'Nombre completo', email: 'Correo electrónico', instagram: 'Enlace de Instagram' },
+      de: { name: 'Vollständiger Name', email: 'E-Mail-Adresse', instagram: 'Instagram-Link' },
+      ru: { name: 'Полное имя', email: 'Эл. почта', instagram: 'Ссылка Instagram' },
+      hu: { "name": "Teljes név", "email": "E-mail cím", "instagram": "Instagram link" }
+    };
+
+    function setLang(lang) {
+      currentLang = lang;
+
+      // Update all data-{lang} text elements
+      document.querySelectorAll('[data-en]').forEach(el => {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return;
+        if (el.id === 'sellValue') return;
+        const val = el.getAttribute('data-' + lang);
+        if (val) el.textContent = val;
+      });
+
+      // Update placeholders
+      document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+        const val = el.getAttribute('data-' + lang + '-placeholder');
+        if (val) el.placeholder = val;
+      });
+
+      // Update book button text
+      const bookBtn = document.getElementById('bookBtn');
+      if (bookBtn) bookBtn.textContent = FORM_ERRORS[lang].bookBtn;
+
+      // Update label inner HTML (preserve <span class="req">)
+      document.querySelectorAll('label[data-en]').forEach(el => {
+        const req = el.querySelector('.req');
+        const val = el.getAttribute('data-' + lang);
+        if (val) {
+          el.textContent = val;
+          if (req) { el.appendChild(document.createTextNode(' ')); el.appendChild(req); }
+        }
+      });
+
+      // Update DOW labels
+      const dowCells = document.querySelectorAll('#calDowRow .cal-dow');
+      DOW_LABELS[lang].forEach((d, i) => { if (dowCells[i]) dowCells[i].textContent = d; });
+
+      // Update sell dropdown options
+      const opts = document.querySelectorAll('#sellDropdown .custom-select-option');
+      const sellTexts = SELL_OPTIONS[lang];
+      opts.forEach((opt, i) => { if (sellTexts[i]) opt.textContent = sellTexts[i]; });
+      // Update the displayed value too
+      const sellVal = document.getElementById('sellValue');
+      const selectedOpt = document.querySelector('#sellDropdown .custom-select-option.selected');
+      if (sellVal) {
+        if (selectedOpt) {
+          sellVal.textContent = selectedOpt.textContent;
+        } else {
+          sellVal.textContent = sellTexts[0];
+          sellVal.style.color = 'rgba(255,255,255,.28)';
+        }
+      }
+
+      // Re-render calendar
+      renderCalendar();
+    }
+
+    // ── Form validation ──
+    function bookAudit() {
+      const name      = document.getElementById('f_name');
+      const email     = document.getElementById('f_email');
+      const instagram = document.getElementById('f_instagram');
+      const formErrorEl = document.getElementById('formError');
+      const bookErrorEl = document.getElementById('bookError');
+      const successEl   = document.getElementById('formSuccess');
+      const err = FORM_ERRORS[currentLang];
+      const fields = FIELD_NAMES[currentLang];
+
+      [name, email, instagram].forEach(el => el.classList.remove('error'));
+      formErrorEl.classList.add('hidden');
+      bookErrorEl.classList.add('hidden');
+      successEl.classList.add('hidden');
+
+      const missing = [];
+      if (!name.value.trim())      { name.classList.add('error');      missing.push(fields.name); }
+      if (!email.value.trim())     { email.classList.add('error');     missing.push(fields.email); }
+      if (!instagram.value.trim()) { instagram.classList.add('error'); missing.push(fields.instagram); }
+
+      if (missing.length) {
+        formErrorEl.textContent = err.missing + missing.join(', ') + '.';
+        formErrorEl.classList.remove('hidden');
+        formErrorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      if (!selectedDate) {
+        bookErrorEl.textContent = err.noDate;
+        bookErrorEl.classList.remove('hidden');
+        return;
+      }
+      const confirmedTime = document.querySelector('.cal-time-btn.confirmed');
+      if (!confirmedTime) {
+        bookErrorEl.textContent = err.noTime;
+        bookErrorEl.classList.remove('hidden');
+        return;
+      }
+
+      const niche    = document.getElementById('f_niche').value.trim();
+      const audience = document.getElementById('f_audience').value.trim();
+      const trust    = document.getElementById('f_trust').value.trim();
+      const sell     = document.getElementById('sellValue').textContent.trim();
+      const potential= document.getElementById('f_potential').value.trim();
+      const anything = document.getElementById('f_anything').value.trim();
+      const timeStr  = confirmedTime.dataset.time;
+      const dateStr  = selectedDate.toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+      const btn = document.querySelector('.btn-3d');
+      btn.textContent = err.sending;
+      btn.disabled = true;
+
+      emailjs.send('service_izbplml', 'template_dil62ug', {
+        to_email: 'balazs@influerich.com',
+        subject:  'Audit Booking — ' + name.value.trim() + ' — ' + dateStr + ' ' + timeStr,
+        date: dateStr, time: timeStr,
+        full_name: name.value.trim(), email: email.value.trim(), instagram: instagram.value.trim(),
+        niche: niche || '—', audience: audience || '—', trust: trust || '—',
+        sell: sell, potential: potential || '—', anything: anything || '—',
+      })
+      .then(() => {
+        const msg = successEl.getAttribute('data-' + currentLang);
+        successEl.textContent = msg || '✓ Sent';
+        successEl.classList.remove('hidden');
+        btn.textContent = err.sent;
+      })
+      .catch((e) => {
+        bookErrorEl.textContent = err.failed + (e.text || e) + ')';
+        bookErrorEl.classList.remove('hidden');
+        btn.textContent = err.bookBtn;
+        btn.disabled = false;
+      });
+    }
+
+    function submitForm() { bookAudit(); }
+
+    // ── Custom select ──
+    function toggleDropdown(id) {
+      const el = document.getElementById(id);
+      const isOpen = el.classList.contains('open');
+      document.querySelectorAll('.custom-select.open').forEach(s => s.classList.remove('open'));
+      if (!isOpen) el.classList.add('open');
+    }
+
+    function selectOption(id, opt) {
+      const el = document.getElementById(id);
+      el.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      const val = document.getElementById('sellValue');
+      val.textContent = opt.textContent;
+      val.style.color = 'var(--gold)';
+      el.classList.remove('open');
+    }
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.custom-select')) {
+        document.querySelectorAll('.custom-select.open').forEach(s => s.classList.remove('open'));
+      }
+    });
+
+    // ── Calendar ──
+    const TIMES = ['14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00'];
+    const AVAILABLE_DOW = [1,2,3,4];
+    let curDate = new Date();
+    let curMonth = curDate.getMonth();
+    let curYear = curDate.getFullYear();
+    let selectedDate = null;
+
+    function renderCalendar() {
+      document.getElementById('calMonthName').textContent = MONTHS[currentLang][curMonth];
+      document.getElementById('calYear').textContent = curYear;
+      const daysEl = document.getElementById('calDays');
+      daysEl.innerHTML = '';
+      const today = new Date(); today.setHours(0,0,0,0);
+      const firstDay = new Date(curYear, curMonth, 1);
+      let startDow = firstDay.getDay();
+      startDow = startDow === 0 ? 6 : startDow - 1;
+      for (let i = 0; i < startDow; i++) {
+        const e = document.createElement('div'); e.className = 'cal-day empty'; daysEl.appendChild(e);
+      }
+      const daysInMonth = new Date(curYear, curMonth + 1, 0).getDate();
+      for (let d = 1; d <= daysInMonth; d++) {
+        const date = new Date(curYear, curMonth, d); date.setHours(0,0,0,0);
+        const dow = date.getDay();
+        const el = document.createElement('div'); el.textContent = d; el.className = 'cal-day';
+        const isPast = date < today;
+        const isAvailable = AVAILABLE_DOW.includes(dow === 0 ? 7 : dow) && !isPast;
+        if (isPast) el.classList.add('past');
+        else if (date.getTime() === today.getTime()) { el.classList.add('today'); if (isAvailable) el.classList.add('available'); }
+        else if (isAvailable) el.classList.add('available');
+        else el.classList.add('disabled');
+        if (selectedDate && date.getTime() === selectedDate.getTime()) { el.classList.remove('available'); el.classList.add('selected'); }
+        if (isAvailable) el.addEventListener('click', () => selectDate(date, el));
+        daysEl.appendChild(el);
+      }
+    }
+
+    function selectDate(date, el) {
+      const isAlreadySelected = selectedDate && date.getTime() === selectedDate.getTime();
+      document.querySelectorAll('.cal-day.selected').forEach(e => { e.classList.remove('selected'); e.classList.add('available'); });
+      if (isAlreadySelected) {
+        selectedDate = null;
+        const timesEl = document.getElementById('calTimes');
+        timesEl.classList.remove('visible'); timesEl.innerHTML = '';
+      } else {
+        selectedDate = date; el.classList.remove('available'); el.classList.add('selected'); showTimes(date);
+      }
+    }
+
+    function showTimes(date) {
+      const timesEl = document.getElementById('calTimes');
+      timesEl.innerHTML = ''; timesEl.classList.add('visible');
+      const label = document.createElement('div'); label.className = 'cal-times-label';
+      label.textContent = DAYS[currentLang][date.getDay()] + ', ' + date.toLocaleDateString('en-GB', { month: 'long', day: 'numeric' });
+      timesEl.appendChild(label);
+      TIMES.forEach(t => {
+        const btn = document.createElement('button');
+        btn.className = 'cal-time-btn'; btn.textContent = t; btn.dataset.time = t;
+        btn.addEventListener('click', () => {
+          const isSelected = btn.classList.contains('confirmed');
+          document.querySelectorAll('.cal-time-btn').forEach(b => { b.classList.remove('confirmed'); b.textContent = b.dataset.time; });
+          if (!isSelected) { btn.classList.add('confirmed'); btn.textContent = '✓ ' + t + ' ' + FORM_ERRORS[currentLang].booked; }
+        });
+        timesEl.appendChild(btn);
+      });
+    }
+
+    function changeMonth(dir) {
+      curMonth += dir;
+      if (curMonth > 11) { curMonth = 0; curYear++; }
+      if (curMonth < 0)  { curMonth = 11; curYear--; }
+      selectedDate = null;
+      document.getElementById('calTimes').classList.remove('visible');
+      renderCalendar();
+    }
+
+    renderCalendar();
+    setLang(currentLang);
+  </script>
+</body>
+</html>

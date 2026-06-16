@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premium Creator Monetization</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #120d11; }
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px;
+      padding: 3px 5px;
+      backdrop-filter: blur(8px);
+    }
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: rgba(246,239,232,0.48);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      font-family: inherit;
+      text-transform: uppercase;
+    }
+    .lang-btn:hover { color: rgba(246,239,232,0.82); background: rgba(255,255,255,0.06); }
+    .lang-btn.active {
+      background: rgba(216,181,139,0.15);
+      color: #d8b58b;
+      border-color: rgba(216,181,139,0.28);
+    }
+    .lang-flag { width: 20px; height: 14px; border-radius: 2px; display: inline-block; overflow: hidden; flex-shrink: 0; }
+    .lang-flag svg { width: 100%; height: 100%; display: block; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const T = {
+      en: {
+        pageTitle: "Premium Creator Monetization",
+        tagline: "Built for creators with real traction",
+        headline: "You lead the audience. I architect the business layer.",
+        badge: "You bring the audience. I build the system behind it.",
+        heroTitle1: "Turn audience trust into a",
+        heroTitle2: "premium revenue system",
+        heroBody1: "You do what you do best: create, lead attention, and build trust. I build the offer, positioning, customer path, and monetization structure that turns that attention into premium revenue.",
+        heroBody2: "Together, we build a real business. Not more noise. Get the value you deserve. A system designed to fit your brand.",
+        ctaBtn: "Calculate my revenue potential",
+        stats: [
+          { value: 'Risk free', label: 'No upfront investment needed, we work for revenue share' },
+          { value: 'Premium', label: 'positioning built for high-trust creators' },
+          { value: 'Aligned', label: 'digital products increasing the value of your brand' },
+        ],
+        strategicTitle: "Strategic",
+        strategicBody: "Premium positioning, offer design, customer path, launch logic, and monetization structure built around your brand.",
+        sec2Kicker: "Positioning",
+        sec2Heading: "Your audience is the asset. The system is what unlocks it.",
+        sec2Body: "Most creators do not have an audience problem. They have a structure problem. Followers already watch, already trust, and already engage. Revenue starts when the right offer, positioning, and buying path are built behind that attention.",
+        forKicker: "Built for",
+        forHeading: "Creators with real traction",
+        forYou: [
+          'You already have an audience that watches, responds, and trusts you',
+          'People ask for your advice, perspective, or recommendations',
+          'You want a premium revenue stream behind your brand',
+          'You want to stay in your creative role while the business system gets built properly behind the scenes',
+        ],
+        notKicker: "Not a fit if",
+        notHeading: "You want shortcuts instead of structure",
+        notForYou: [
+          'You are starting from zero',
+          'You want low-quality monetization or short-term tricks',
+          'You do not yet have real audience trust',
+          'You prefer chaos over structure',
+        ],
+        phase: "Phase",
+        howKicker: "How it works",
+        howHeading: "How we turn attention into premium revenue",
+        howBody: "A clean division of roles. You stay in your zone of genius. I build the commercial system that makes your attention work harder.",
+        steps: [
+          { title: 'Audience & Opportunity Audit', body: 'I identify what your audience already responds to, where trust is strongest, what demand patterns are visible, and which premium offer fits your brand naturally.' },
+          { title: 'Offer & System Design', body: 'I build the offer, positioning, pricing logic, buyer path, and monetization structure, while you stay focused on your content, voice, and audience.' },
+          { title: 'Launch Strategy & Execution Support', body: 'We activate the system with a launch model that feels aligned, elevated, and commercially strong, without turning your brand into noise.' },
+        ],
+        roleKicker: "Role division",
+        roleHeading: "You bring what cannot be replaced",
+        roleItems: ['Creativity', 'Audience', 'Trust', 'Voice', 'Attention', 'Relationship'],
+        roleBody: "That is your zone of genius. That is where your value is highest.",
+        buildKicker: "What I build",
+        buildHeading: "The business layer that makes it monetize",
+        buildItems: ['Offer structure', 'Premium positioning', 'Commercial logic', 'Customer journey', 'Launch framework', 'Monetization system'],
+        buildBody: "You do not need to become a strategist, funnel builder, or offer architect. You stay close to the audience. I build the structure around that trust.",
+        premKicker: "Premium positioning",
+        premHeading: "This is not about squeezing your audience. It is about building something worthy of them.",
+        premBody: "Premium monetization should feel natural, credible, and intentional. The offer has to match the trust you have already built. The customer path has to feel clean. The brand has to stay intact while revenue grows.",
+        structKicker: "Built on structure",
+        structHeading: "The creator does not need to do everything",
+        structBody1: "One of the biggest mistakes creators make is assuming they need to become great at content, offers, pricing, launches, and sales structure all at once. That is rarely the highest-leverage path.",
+        structBody2: "The stronger model is simple: you keep leading the audience, and I build the business layer behind it. That is where monetization becomes cleaner, more strategic, and more valuable.",
+        selKicker: "Selective by design",
+        selHeading: "Premium monetization only works when there is already something real to build on.",
+        selItems: ['Visible audience trust', 'Meaningful engagement', 'Strong point of view or brand presence', 'Ambition to build something premium behind the attention'],
+        faqKicker: "FAQ",
+        faqHeading: "Questions potential clients usually ask",
+        faqs: [
+          { q: 'Do I need to create more content?', a: 'No. The goal is not more output. The goal is a stronger revenue system behind the attention you already create.' },
+          { q: 'Will this change my brand?', a: 'No. The system should strengthen your brand, not distort it. Premium monetization should feel like a natural extension of the trust you already built.' },
+          { q: 'What exactly do you do?', a: 'We help influencers monetize by launching digital products. We identify the opportunity in your audience and build the offer, positioning, customer path, and launch structure behind it.' },
+          { q: 'Who is this best suited for?', a: 'Creators with real audience trust, meaningful engagement, and clear premium potential behind their brand.' },
+        ],
+        finalKicker: "Final call",
+        finalHeading: "You already built the attention. Now build the system behind it.",
+        finalBody: "You bring the creativity. You bring the audience. You do what you do best. I build the system behind it, and together that becomes premium revenue.",
+      },
+      es: {
+        pageTitle: "Monetización Premium para Creadores",
+        tagline: "Para creadores con tracción real",
+        headline: "Tú lideras la audiencia. Yo construyo la capa de negocio.",
+        badge: "Tú traes la audiencia. Yo construyo el sistema detrás.",
+        heroTitle1: "Convierte la confianza de tu audiencia en un",
+        heroTitle2: "sistema de ingresos premium",
+        heroBody1: "Haz lo que mejor sabes hacer: crear, liderar la atención y construir confianza. Yo construyo la oferta, el posicionamiento, el camino del cliente y la estructura de monetización que convierte esa atención en ingresos premium.",
+        heroBody2: "Juntos, eso se convierte en un negocio real. No más ruido. No monetización barata. Un sistema diseñado para encajar con tu marca.",
+        ctaBtn: "Calcula mi potencial de ingresos",
+        stats: [
+          { value: 'Sin riesgo', label: 'Sin inversión inicial, trabajamos por participación en ingresos' },
+          { value: 'Premium', label: 'posicionamiento construido para creadores de alta confianza' },
+          { value: 'Alineado', label: 'monetización sin degradar la marca' },
+        ],
+        strategicTitle: "Estratégico",
+        strategicBody: "Posicionamiento premium, diseño de oferta, camino del cliente, lógica de lanzamiento y estructura de monetización construida alrededor de tu marca.",
+        sec2Kicker: "Posicionamiento",
+        sec2Heading: "Tu audiencia es el activo. El sistema es lo que lo desbloquea.",
+        sec2Body: "La mayoría de los creadores no tienen un problema de audiencia. Tienen un problema de estructura. La gente ya mira, ya confía y ya interactúa. Los ingresos comienzan cuando se construye la oferta correcta, el posicionamiento y el camino de compra detrás de esa atención.",
+        forKicker: "Diseñado para",
+        forHeading: "Creadores con tracción real",
+        forYou: [
+          'Ya tienes una audiencia que te mira, responde y confía en ti',
+          'La gente pide tu consejo, perspectiva o recomendaciones',
+          'Quieres un flujo de ingresos premium detrás de tu marca',
+          'Quieres mantenerte en tu rol creativo mientras el sistema de negocio se construye correctamente entre bastidores',
+        ],
+        notKicker: "No es para ti si",
+        notHeading: "Buscas atajos en lugar de estructura",
+        notForYou: [
+          'Estás empezando desde cero',
+          'Quieres monetización de baja calidad o trucos a corto plazo',
+          'Aún no tienes confianza real de audiencia',
+          'Prefieres el caos sobre la estructura',
+        ],
+        phase: "Fase",
+        howKicker: "Cómo funciona",
+        howHeading: "Cómo convertimos la atención en ingresos premium",
+        howBody: "Una división clara de roles. Tú te quedas en tu zona de genialidad. Yo construyo el sistema comercial que hace que tu atención trabaje más duro.",
+        steps: [
+          { title: 'Auditoría de Audiencia y Oportunidad', body: 'Identifico a qué responde ya tu audiencia, dónde es más fuerte la confianza, qué patrones de demanda son visibles y qué oferta premium encaja naturalmente con tu marca.' },
+          { title: 'Diseño de Oferta y Sistema', body: 'Construyo la oferta, el posicionamiento, la lógica de precios, el camino del comprador y la estructura de monetización, mientras tú te mantienes enfocado en tu contenido, voz y audiencia.' },
+          { title: 'Estrategia de Lanzamiento y Apoyo en Ejecución', body: 'Activamos el sistema con un modelo de lanzamiento que se siente alineado, elevado y comercialmente sólido, sin convertir tu marca en ruido.' },
+        ],
+        roleKicker: "División de roles",
+        roleHeading: "Tú traes lo que no puede reemplazarse",
+        roleItems: ['Creatividad', 'Audiencia', 'Confianza', 'Voz', 'Atención', 'Relación'],
+        roleBody: "Esa es tu zona de genialidad. Ahí es donde tu valor es más alto.",
+        buildKicker: "Lo que yo construyo",
+        buildHeading: "La capa de negocio que lo monetiza",
+        buildItems: ['Estructura de oferta', 'Posicionamiento premium', 'Lógica comercial', 'Recorrido del cliente', 'Marco de lanzamiento', 'Sistema de monetización'],
+        buildBody: "No necesitas convertirte en estratega, constructor de funnels o arquitecto de ofertas. Tú te mantienes cerca de la audiencia. Yo construyo la estructura alrededor de esa confianza.",
+        premKicker: "Posicionamiento premium",
+        premHeading: "No se trata de exprimir a tu audiencia. Se trata de construir algo digno de ellos.",
+        premBody: "La monetización premium debe sentirse natural, creíble e intencional. La oferta debe coincidir con la confianza que ya has construido. El camino del cliente debe sentirse limpio. La marca debe mantenerse intacta mientras los ingresos crecen.",
+        structKicker: "Construido sobre estructura",
+        structHeading: "El creador no necesita hacerlo todo",
+        structBody1: "Uno de los mayores errores que cometen los creadores es asumir que necesitan volverse excelentes en contenido, ofertas, precios, lanzamientos y estructura de ventas al mismo tiempo. Ese rara vez es el camino de mayor apalancamiento.",
+        structBody2: "El modelo más sólido es simple: tú sigues liderando la audiencia y yo construyo la capa de negocio detrás. Ahí es donde la monetización se vuelve más limpia, más estratégica y más valiosa.",
+        selKicker: "Selectivo por diseño",
+        selHeading: "La monetización premium solo funciona cuando ya hay algo real sobre lo que construir.",
+        selItems: ['Confianza de audiencia visible', 'Compromiso significativo', 'Punto de vista sólido o presencia de marca', 'Ambición de construir algo premium detrás de la atención'],
+        faqKicker: "FAQ",
+        faqHeading: "Preguntas que suelen hacer los clientes potenciales",
+        faqs: [
+          { q: '¿Necesito crear más contenido?', a: 'No. El objetivo no es más producción. El objetivo es un sistema de ingresos más sólido detrás de la atención que ya creas.' },
+          { q: '¿Esto cambiará mi marca?', a: 'No. El sistema debe fortalecer tu marca, no distorsionarla. La monetización premium debe sentirse como una extensión natural de la confianza que ya has construido.' },
+          { q: '¿Qué hacéis exactamente?', a: 'Ayudamos a los influencers a monetizar lanzando productos digitales. Identificamos la oportunidad en tu audiencia y construimos la oferta, el posicionamiento, el camino del cliente y la estructura de lanzamiento detrás.' },
+          { q: '¿Para quién es más adecuado?', a: 'Creadores con confianza real de audiencia, compromiso significativo y claro potencial premium detrás de su marca.' },
+        ],
+        finalKicker: "Llamada final",
+        finalHeading: "Ya construiste la atención. Ahora construye el sistema detrás.",
+        finalBody: "Tú traes la creatividad. Tú traes la audiencia. Haces lo que mejor sabes hacer. Yo construyo el sistema detrás, y juntos eso se convierte en ingresos premium.",
+      },
+      de: {
+        pageTitle: "Premium Creator Monetarisierung",
+        tagline: "Für Creator mit echter Traktion",
+        headline: "Du führst das Publikum. Ich entwickle die Geschäftsschicht.",
+        badge: "Du bringst das Publikum. Ich baue das System dahinter.",
+        heroTitle1: "Verwandle das Vertrauen deines Publikums in ein",
+        heroTitle2: "Premium-Einnahmensystem",
+        heroBody1: "Du tust, was du am besten kannst: erstellen, Aufmerksamkeit leiten und Vertrauen aufbauen. Ich baue das Angebot, die Positionierung, den Kundenpfad und die Monetarisierungsstruktur, die diese Aufmerksamkeit in Premium-Einnahmen verwandelt.",
+        heroBody2: "Zusammen wird daraus ein echtes Unternehmen. Kein zusätzliches Rauschen. Keine billige Monetarisierung. Ein System, das zu deiner Marke passt.",
+        ctaBtn: "Berechne mein Umsatzpotenzial",
+        stats: [
+          { value: 'Risikolos', label: 'Keine Vorabinvestition nötig, wir arbeiten auf Umsatzbeteiligung' },
+          { value: 'Premium', label: 'Positionierung für Creator mit hohem Vertrauen' },
+          { value: 'Ausgerichtet', label: 'Monetarisierung ohne die Marke zu entwerten' },
+        ],
+        strategicTitle: "Strategisch",
+        strategicBody: "Premium-Positionierung, Angebotsgestaltung, Kundenpfad, Launch-Logik und Monetarisierungsstruktur – rund um deine Marke aufgebaut.",
+        sec2Kicker: "Positionierung",
+        sec2Heading: "Dein Publikum ist das Asset. Das System erschließt es.",
+        sec2Body: "Die meisten Creator haben kein Publikumsproblem. Sie haben ein Strukturproblem. Die Menschen schauen bereits zu, vertrauen bereits und interagieren bereits. Einnahmen beginnen, wenn das richtige Angebot, die Positionierung und der Kaufpfad hinter dieser Aufmerksamkeit aufgebaut werden.",
+        forKicker: "Geeignet für",
+        forHeading: "Creator mit echter Traktion",
+        forYou: [
+          'Du hast bereits ein Publikum, das dir zuschaut, antwortet und vertraut',
+          'Menschen fragen dich nach Rat, Perspektive oder Empfehlungen',
+          'Du möchtest einen Premium-Einnahmenfluss hinter deiner Marke',
+          'Du möchtest in deiner kreativen Rolle bleiben, während das Geschäftssystem im Hintergrund aufgebaut wird',
+        ],
+        notKicker: "Nicht geeignet wenn",
+        notHeading: "Du Abkürzungen statt Struktur willst",
+        notForYou: [
+          'Du bei null anfängst',
+          'Du minderwertige Monetarisierung oder kurzfristige Tricks willst',
+          'Du noch kein echtes Publikumsvertrauen hast',
+          'Du Chaos der Struktur vorziehst',
+        ],
+        phase: "Phase",
+        howKicker: "So funktioniert es",
+        howHeading: "Wie wir Aufmerksamkeit in Premium-Einnahmen verwandeln",
+        howBody: "Eine klare Aufgabenteilung. Du bleibst in deiner Genialitätszone. Ich baue das kommerzielle System, das deine Aufmerksamkeit härter arbeiten lässt.",
+        steps: [
+          { title: 'Publikums- & Chancen-Audit', body: 'Ich identifiziere, worauf dein Publikum bereits reagiert, wo das Vertrauen am stärksten ist, welche Nachfragemuster sichtbar sind und welches Premium-Angebot natürlich zu deiner Marke passt.' },
+          { title: 'Angebots- & Systemdesign', body: 'Ich baue das Angebot, die Positionierung, die Preislogik, den Käuferpfad und die Monetarisierungsstruktur, während du dich auf deinen Inhalt, deine Stimme und dein Publikum konzentrierst.' },
+          { title: 'Launch-Strategie & Umsetzungsunterstützung', body: 'Wir aktivieren das System mit einem Launch-Modell, das sich ausgerichtet, erhöht und kommerziell stark anfühlt, ohne deine Marke in Lärm zu verwandeln.' },
+        ],
+        roleKicker: "Rollenverteilung",
+        roleHeading: "Du bringst, was nicht ersetzt werden kann",
+        roleItems: ['Kreativität', 'Publikum', 'Vertrauen', 'Stimme', 'Aufmerksamkeit', 'Beziehung'],
+        roleBody: "Das ist deine Genialitätszone. Dort ist dein Wert am höchsten.",
+        buildKicker: "Was ich baue",
+        buildHeading: "Die Geschäftsschicht, die monetarisiert",
+        buildItems: ['Angebotsstruktur', 'Premium-Positionierung', 'Kommerzielle Logik', 'Customer Journey', 'Launch-Framework', 'Monetarisierungssystem'],
+        buildBody: "Du musst kein Stratege, Funnel-Baumeister oder Angebotsarchitekt werden. Du bleibst nah am Publikum. Ich baue die Struktur um dieses Vertrauen herum.",
+        premKicker: "Premium-Positionierung",
+        premHeading: "Es geht nicht darum, dein Publikum auszuquetschen. Es geht darum, etwas Würdiges für sie zu bauen.",
+        premBody: "Premium-Monetarisierung sollte sich natürlich, glaubwürdig und bewusst anfühlen. Das Angebot muss dem Vertrauen entsprechen, das du bereits aufgebaut hast. Der Kundenpfad muss sich sauber anfühlen. Die Marke muss intakt bleiben, während die Einnahmen wachsen.",
+        structKicker: "Auf Struktur aufgebaut",
+        structHeading: "Der Creator muss nicht alles tun",
+        structBody1: "Einer der größten Fehler, die Creator machen, ist anzunehmen, dass sie gleichzeitig in Inhalten, Angeboten, Preisen, Launches und Verkaufsstruktur großartig werden müssen. Das ist selten der Weg mit dem höchsten Hebel.",
+        structBody2: "Das stärkere Modell ist einfach: Du führst weiterhin das Publikum, und ich baue die Geschäftsschicht dahinter. Dort wird die Monetarisierung sauberer, strategischer und wertvoller.",
+        selKicker: "Selektiv by Design",
+        selHeading: "Premium-Monetarisierung funktioniert nur, wenn es bereits etwas Echtes gibt, worauf man aufbauen kann.",
+        selItems: ['Sichtbares Publikumsvertrauen', 'Bedeutungsvolles Engagement', 'Starker Standpunkt oder Markenpräsenz', 'Ambition, etwas Premium hinter der Aufmerksamkeit zu bauen'],
+        faqKicker: "FAQ",
+        faqHeading: "Fragen, die potenzielle Kunden normalerweise stellen",
+        faqs: [
+          { q: 'Muss ich mehr Inhalte erstellen?', a: 'Nein. Das Ziel ist nicht mehr Output. Das Ziel ist ein stärkeres Einnahmensystem hinter der Aufmerksamkeit, die du bereits erzeugst.' },
+          { q: 'Wird das meine Marke verändern?', a: 'Nein. Das System soll deine Marke stärken, nicht verzerren. Premium-Monetarisierung sollte sich wie eine natürliche Erweiterung des Vertrauens anfühlen, das du bereits aufgebaut hast.' },
+          { q: 'Was macht ihr genau?', a: 'Wir helfen Influencern, durch den Launch digitaler Produkte zu monetarisieren. Wir identifizieren die Chance in deinem Publikum und bauen das Angebot, die Positionierung, den Kundenpfad und die Launch-Struktur dahinter.' },
+          { q: 'Für wen ist das am besten geeignet?', a: 'Creator mit echtem Publikumsvertrauen, bedeutungsvollem Engagement und klarem Premium-Potenzial hinter ihrer Marke.' },
+        ],
+        finalKicker: "Abschließender Aufruf",
+        finalHeading: "Du hast bereits die Aufmerksamkeit aufgebaut. Jetzt baue das System dahinter.",
+        finalBody: "Du bringst die Kreativität. Du bringst das Publikum. Du tust, was du am besten kannst. Ich baue das System dahinter, und zusammen wird daraus Premium-Umsatz.",
+      },
+      ru: {
+        pageTitle: "Премиум монетизация для блогеров",
+        tagline: "Для авторов и экспертов, которым доверяют",
+        headline: "Вы создаёте аудиторию. Мы строим бизнес вокруг неё.",
+        badge: "Вы привлекаете подписчиков. Мы превращаем это в систему дохода.",
+        heroTitle1: "Превратите свою аудиторию в",
+        heroTitle2: "премиальный источник дохода",
+        heroBody1: "Вы уже сделали самое сложное: собрали аудиторию, завоевали доверие, создали личный бренд, к которому прислушиваются. Но внимание аудитории само по себе не является бизнесом. Большинство авторов продолжают зарабатывать на разовых рекламных интеграциях, хотя их бренд способен приносить значительно больше.",
+        heroBody2: "Мы помогаем превратить доверие аудитории в полноценную систему дохода через собственные цифровые продукты, премиальные предложения и продуманную стратегию монетизации. Без агрессивных продаж. Без навязчивых воронок. Без ущерба для репутации. Только сильный продукт и система, которая работает на Ваш бренд.",
+        ctaBtn: "Рассчитать потенциальный доход",
+        stats: [
+          { value: 'Премиум позиционирование', label: 'Ваш бренд становится не просто источником контента, а основой для сильного коммерческого предложения.' },
+          { value: 'Собственный цифровой продукт', label: 'Продукт создаётся вокруг Вашей аудитории и её реальных потребностей.' },
+          { value: 'Система монетизации', label: 'Каждый этап — от первого контакта до покупки — выстраивается в единую понятную систему.' },
+        ],
+        strategicTitle: "Никакого риска",
+        strategicBody: "Работаем за процент от результата. Наша мотивация напрямую зависит от Вашего успеха.",
+        sec2Kicker: "Позиционирование",
+        sec2Heading: "Ваша аудитория уже является активом. Нужна лишь система, которая раскроет её потенциал.",
+        sec2Body: "Люди смотрят Вас, прислушиваются к Вам и доверяют Вам. Наша задача — создать систему, которая позволит превратить это доверие в устойчивый источник дохода.",
+        forKicker: "Подходит для",
+        forHeading: "Блогеров, которые хотят зарабатывать",
+        forYou: [
+          'У Вас уже есть аудитория, которая следит за Вашим контентом, взаимодействует с ним и доверяет Вашему мнению.',
+          'Вы устали наблюдать, как другие создают успешный онлайн-бизнес, пока сами пытаетесь понять, с чего начать.',
+          'Вы готовы следовать проверенной системе вместо того, чтобы проходить весь путь методом проб и ошибок в одиночку.',
+          'Вы хотите заниматься творчеством, пока бизнес-система строится за кулисами.',
+        ],
+        notKicker: "Не подходит, если",
+        notHeading: "Вы только начинаете или Вас все устраивает",
+        notForYou: [
+          'Вы начинаете с "нуля". У Вас еще нет подписчиков и доверия аудитории.',
+          'Вы ищете лёгкий способ получать доход без реальной работы и вовлечённости.',
+          'Вы не готовы следовать проверенной системе и предпочитаете бесконечно искать решения самостоятельно.',
+          'Вас полностью устраивает текущее положение вещей, и Вы не стремитесь к росту.',
+        ],
+        phase: "Фаза",
+        howKicker: "Как это работает",
+        howHeading: "Как мы превращаем внимание аудитории в доходы?",
+        howBody: "Каждый занимается своим делом. Вы продолжаете создавать контент и привлекать подписчиков, а мы выстраиваем коммерческую систему вокруг Вашего бренда.",
+        steps: [
+          { title: 'Анализ аудитории и контента', body: 'Изучаем Вашу аудиторию. Находим темы, которые вызывают максимальный интерес и доверие. Определяем, за что люди готовы платить.' },
+          { title: 'Создаем продукт и систему монетизации.', body: 'Разрабатываем продукт. Согласовываем с Вами. Дорабатываем вместе. Создаём стратегию, путь клиента, механику продаж и модель монетизации.' },
+          { title: 'Запуск продукта и сопровождение', body: 'Запускаем систему так, чтобы она выглядела естественно для аудитории, усиливала бренд и приносила результат.' },
+        ],
+        roleKicker: "Разделение ролей",
+        roleHeading: "То, что можете дать только Вы",
+        roleItems: ['Контент', 'Аудитория', 'Доверие', 'Личный стиль', 'Креативность', 'Связи с подписчиками'],
+        roleBody: "Это Ваша сильная сторона. Именно здесь Ваша ценность максимальна.",
+        buildKicker: "Что мы берем на себя",
+        buildHeading: "Бизнес-система, которая приносит доход",
+        buildItems: ['Создание продукта', 'Премиальное позиционирование', 'Коммерческая стратегия', 'Путь клиента', 'Стратегия запуска', 'Система монетизации'],
+        buildBody: "Вам не нужно становиться маркетологом, продавцом или экспертом по воронкам. Вы работаете с аудиторией, а мы строим систему доходов вокруг её доверия.",
+        premKicker: "Премиум позиционирование",
+        premHeading: "Речь не о том, чтобы заработать на подписчиках любой ценой. Речь о создании действительно ценного продукта.",
+        premBody: "Премиум монетизация должна выглядеть естественно. Продукт должен соответствовать уровню доверия аудитории, а весь путь клиента — быть понятным и комфортным.",
+        structKicker: "Основа успеха — сильная система",
+        structHeading: "Вам не нужно делать всё самостоятельно.",
+        structBody1: "Многие блогеры пытаются одновременно быть автором, маркетологом, стратегом и продавцом. Это редко даёт хороший результат.",
+        structBody2: "Гораздо эффективнее, когда каждый занимается своим делом: Вы развиваете аудиторию, мы строим коммерческую систему.",
+        selKicker: "Основа бизнеса",
+        selHeading: "Премиум монетизация работает только тогда, когда уже есть прочный фундамент:",
+        selItems: ['Высокий уровень доверия аудитории', 'Хорошая вовлечённость', 'Сильный личный бренд или уникальная экспертиза', 'Желание создать качественный премиальный продукт'],
+        faqKicker: "FAQ",
+        faqHeading: "Часто задаваемые вопросы",
+        faqs: [
+          { q: 'Нужно ли выпускать больше контента?', a: 'Нет. Наша задача — повысить доход от уже существующей аудитории, а не заставлять Вас работать больше.' },
+          { q: 'Это может навредить моему бренду?', a: 'Наоборот. Всё строится вокруг укрепления доверия и повышения ценности Вашего бренда.' },
+          { q: 'Что делаете именно Вы?', a: 'Мы помогаем блогерам создавать и запускать цифровые продукты. Находим точки роста внутри аудитории и создаём продукт, позиционирование, путь клиента и стратегию запуска.' },
+          { q: 'Кому это подходит лучше всего?', a: 'Блогерам с лояльной аудиторией, хорошей вовлечённостью подписчиков и потенциалом для создания премиального цифрового продукта.' },
+        ],
+        finalKicker: "Последний шаг",
+        finalHeading: "Вы уже привлекли внимание аудитории. Пришло время превратить его в доходы",
+        finalBody: "Вы продолжаете создавать контент, общаться с аудиторией и заниматься тем, что любите. Мы создаем систему, которая позволяет Вашему бренду зарабатывать.",
+      },
+      hu: {
+        pageTitle: "Prémium Creator Monetizáció",
+        tagline: "Tartalomgyártóknak, akik már jelentős követő táborral rendelkeznek.",
+        headline: "Te hozod a követőket. Én felépítem az üzleti réteget.",
+        badge: "Te vonzod a közönség figyelmét. Én megépítem mögé a rendszert.",
+        heroTitle1: "Alakítsd a közönséged bizalmát",
+        heroTitle2: "prémium bevételi rendszerré",
+        heroBody1: "Te azt csinálod, amiben a legjobb vagy: alkotsz, magadra irányítod a figyelmet és bizalmat építesz. Én adom azt az ajánlatot, pozicionálást, piaci bevezetés stratégiáját és a fizetési rendszert, amely végül prémium bevételt hoz..",
+        heroBody2: "Együtt valódi üzletet építünk. Nincs több zaj. Nem dolgozol többé áron alul. A rendszer a te márkád építését szolgálja.",
+        ctaBtn: "Számítsd ki mennyit kereshetsz",
+        stats: [
+          { value: 'Kockázatmentes', label: 'Nincs előzetes befektetés – a bevételt megosztjuk' },
+          { value: 'Prémium', label: 'pozicionálás, kifejezetten erős bizalmi tőkével rendelkező infuenszereknek' },
+          { value: 'Egyedi', label: 'digitális termékek, amelyek emelik a márkád értékét' },
+        ],
+        strategicTitle: "Stratégiai",
+        strategicBody: "Prémium pozicionálás, ajánlattervezés, vásárlói út, piaci bevezetés és fizetési rendszer – mind a te márkád köré építve.",
+        sec2Kicker: "Pozicionálás",
+        sec2Heading: "A közönséged a legnagyobb érték. A rendszer az, ami ebből bevételt hoz.",
+        sec2Body: "A legtöbb alkotó vonzza az érdeklődőket. Ha nincs rendszer mögötte, elmaradnak a bevételek. Az követőid  már figyelnek rád, már bíznak benned, már kötődnek hozzád. A bevétel megszerzéséhez viszont, szükséges a megfelelő ajánlat, pozicionálás és a vásárlás egyszerűvé tétele.",
+        forKicker: "Kiknek szól",
+        forHeading: "Tartalomgyártóknak, akik már jelentős követő táborral rendelkeznek.",
+        forYou: [
+          'Van már közönséged, amely figyelemmel követ, reagál és bízik benned',
+          'Számítanak a véleményedre, az ajánlásaidra, érdekli őket a nézőpontod',
+          'Prémium bevételi forrást szeretnél a márkád mögé',
+          'Kreatív alkotó akarsz maradni, miközben a háttérben profin felépül az üzleti rendszer',
+        ],
+        notKicker: "Nem neked szól, ha",
+        notHeading: "Jól felépített rendszer helyett azonnali meggazdagodást akarsz",
+        notForYou: [
+          'Nulláról indulsz',
+          'Gyors, de silány trükköket keresel',
+          'A követőid még nem bíznak benned igazán',
+          'A káoszt választod a rendszer helyett',
+        ],
+        phase: "Fázis",
+        howKicker: "Így működik",
+        howHeading: "Így alakítjuk a követőid figyelmét prémium bevétellé",
+        howBody: "Világos szerepek. Te továbbra is azt csinálod, amiben zseniális vagy. Én felépítem azt az üzleti rendszert, amely bevételt termel a közönséged figyelméből.",
+        steps: [
+          { title: 'Közönség- és lehetőség-audit', body: 'Feltérképezem, mire reagál már most a közönséged, hol a legerősebb a bizalom, milyen keresleti mintázatok rajzolódnak ki, és melyik prémium ajánlat illik leginkább a márkádhoz.' },
+          { title: 'Ajánlat- és rendszertervezés', body: 'Felépítem az ajánlatot, a pozicionálást, az árazási logikát, a piaci stratégiát és a fizetési rendszert – miközben te a tartalmadra, az üzeneteidre és a közönségedre koncentrálsz.' },
+          { title: 'Piacra lépés stratégia és kivitelezési támogatás', body: 'Élesítjük a rendszert egy olyan launch-modellel, amely összhangban van veled, prémium hatású és üzletileg erős – úgy, hogy a márkád kiemelkedjen a zajból.' },
+        ],
+        roleKicker: "Feladatmegosztás",
+        roleHeading: "Te hozod azt, ami csak a tiéd",
+        roleItems: ['Kreativitás', 'Közönség', 'Bizalom', 'Stílus', 'A közönség figyelme', 'Kapcsolat'],
+        roleBody: "Ez a te zsenialitásod eredménye. Ebben vagy a legjobb.",
+        buildKicker: "Amit én adok",
+        buildHeading: "Az üzleti réteg, amely mindebből bevételt csinál",
+        buildItems: ['Ajánlatstruktúra', 'Prémium pozicionálás', 'Üzleti logika', 'Vásárló útja ', 'Launch-keretrendszer', 'Fizetési rendszer'],
+        buildBody: "Nem kell stratégává, funnelépítővé vagy ajánlattervezővé válnod. Te a közönségeddel törődsz. Én az általad megszerzett bizalom és figyelem köré építem fel a struktúrát.",
+        premKicker: "Prémium pozicionálás",
+        premHeading: "Ez nem a közönséged kihasználásáról szól, hanem arról, hogy valami olyat építs, ami érték a számukra.",
+        premBody: "A prémium bevétel eléréséhez természetesnek, hitelesnek és átgondoltnak kell lenni. Az ajánlatnak illeni kell ahhoz a bizalomhoz, amit már felépítettél. A vásárlás módjának letisztultnak kell lennie. A márkának hitelesnek kell maradnia, miközben a bevétel nő.",
+        structKicker: "Struktúrára építve",
+        structHeading: "Nem kell mindent egyedül csinálnod",
+        structBody1: "Hibás az a feltevés, hogy egyszerre kell kiválónak lenned tartalomgyártásban, ajánlat készítésben, árazásban, piaci bevezetésben és értékesítésben. Általában nem ez a leghatékonyabb út.",
+        structBody2: "Létezik egyszerűbb, de hatékonyabb modell: te továbbra is a közönségedre koncentrálsz, én pedig felépítem mögé az üzleti struktúrát. Így válik a bevételszerző folyamat letisztultabbá, stratégiaibbá és értékesebbé.",
+        selKicker: "Tudatosan szelektív",
+        selHeading: "A prémium bevétel szerző folyyamatok csak akkor működnek, ha már van mire építeni.",
+        selItems: ['Látható a közönség bizalma', 'Érdemi elköteleződés', 'Követendő szemléletmód vagy markáns márkajelenlét', 'Ambíció, hogy az eddigi ereddményekből valami prémium épüljön'],
+        faqKicker: "GYIK",
+        faqHeading: "Kérdések, amelyeket a leendő ügyfelek legtöbbször feltesznek",
+        faqs: [
+          { q: 'Több tartalmat kell készítenem?', a: 'Nem. A cél nem a több tartalom. A cél egy erősebb bevételi rendszer a már meglévő követő bázisra építve.' },
+          { q: 'Megváltoztatja ez a márkámat?', a: 'Nem. A rendszer erősíti a márkádat, de semmiképp nem torzítja. A prémium bevételszerző folyamatok az eddigi eredményeid természetes folytatásaként jelennek meg.' },
+          { q: 'Pontosan mit csinálsz?', a: 'Abban segítünk a tartalomgyártóknak, hogy digitális termékek piacra vitelével prémium bevételre tegyenek szert. Feltárjuk a közönségedben rejlő lehetőséget, és felépítjük mögé az ajánlatot, a pozicionálást, a piacra viteli stratégiát és a fizetési rendszert.' },
+          { q: 'Kinek való ez leginkább?', a: 'Olyan alkotóknak, akik mögött ott a valódi, elkötelezett  követőtábor, ami prémium potenciált jelent.' },
+        ],
+        finalKicker: "Zárógondolat",
+        finalHeading: "A követőid már felfigyeltek rád. Most építsd fel mögé a rendszert.",
+        finalBody: "Te hozod a kreativitást. Te hozod a közönséget. Te azt csinálod, amiben a legjobb vagy. Én felépítem mögé a rendszert – és együtt ebből prémium bevételre teszünk szert.",
+      }
+    };
+
+    const FlagGB = () => (
+      <span className="lang-flag">
+        <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="40" fill="#012169"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" strokeWidth="8"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" strokeWidth="5"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#fff" strokeWidth="13"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" strokeWidth="8"/>
+        </svg>
+      </span>
+    );
+    const FlagES = () => (
+      <span className="lang-flag">
+        <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="40" fill="#c60b1e"/>
+          <rect y="10" width="60" height="20" fill="#ffc400"/>
+        </svg>
+      </span>
+    );
+    const FlagDE = () => (
+      <span className="lang-flag">
+        <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="40" fill="#000"/>
+          <rect y="13.33" width="60" height="13.34" fill="#D00"/>
+          <rect y="26.67" width="60" height="13.33" fill="#FFCE00"/>
+        </svg>
+      </span>
+    );
+    const FlagRU = () => (
+      <span className="lang-flag">
+        <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="40" fill="#fff"/>
+          <rect y="13.33" width="60" height="13.34" fill="#0039A6"/>
+          <rect y="26.67" width="60" height="13.33" fill="#D52B1E"/>
+        </svg>
+      </span>
+    );
+    const FlagHU = () => (
+      <span className="lang-flag">
+        <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="40" fill="#477050"/>
+          <rect width="60" height="13.33" fill="#CE2939"/>
+          <rect y="13.33" width="60" height="13.34" fill="#FFFFFF"/>
+          <rect y="26.67" width="60" height="13.33" fill="#477050"/>
+        </svg>
+      </span>
+    );
+
+    const LANGS = [
+      { code: 'en', label: 'EN', Flag: FlagGB, title: 'English' },
+      { code: 'es', label: 'ES', Flag: FlagES, title: 'Español' },
+      { code: 'de', label: 'DE', Flag: FlagDE, title: 'Deutsch' },
+      { code: 'ru', label: 'RU', Flag: FlagRU, title: 'Русский' },
+      { code: 'hu', label: 'HU', Flag: FlagHU, title: 'Magyar' },
+    ];
+
+    function LangSwitcher({ lang, setLang }) {
+      const handleLang = (l) => {
+        setLang(l);
+        try { localStorage.setItem('site_lang', l); } catch(e) {}
+      };
+      return (
+        <div className="lang-switcher">
+          {LANGS.map(({ code, label, Flag, title }) => (
+            <button
+              key={code}
+              className={"lang-btn" + (lang === code ? ' active' : '')}
+              onClick={() => handleLang(code)}
+              title={title}
+            >
+              <Flag /><span>{label}</span>
+            </button>
+          ))}
+        </div>
+      );
+    }
+
+    function PremiumCreatorLanding() {
+      const [lang, setLang] = React.useState(() => {
+        try { return localStorage.getItem('site_lang') || 'en'; } catch(e) { return 'en'; }
+      });
+      const t = T[lang];
+
+
+
+      const handleCTA = () => { window.location.href = 'cta_page.html'; };
+
+      const ctaPrimary = "relative z-10 rounded-full border border-[#d8b58b]/60 bg-[linear-gradient(180deg,#ecd3b2_0%,#d8b58b_55%,#bf9970_100%)] px-6 py-3 text-sm font-semibold text-[#21171a] shadow-[0_14px_28px_rgba(0,0,0,0.32),0_8px_18px_rgba(216,181,139,0.18),inset_0_1px_0_rgba(255,255,255,0.45),inset_0_-8px_14px_rgba(123,74,26,0.16)] transition hover:-translate-y-px hover:shadow-[0_18px_34px_rgba(0,0,0,0.36),0_10px_22px_rgba(216,181,139,0.22),inset_0_1px_0_rgba(255,255,255,0.5),inset_0_-10px_16px_rgba(123,74,26,0.2)] active:translate-y-[1px] active:shadow-[0_8px_18px_rgba(216,181,139,0.22),inset_0_1px_0_rgba(255,255,255,0.35),inset_0_-1px_0_rgba(0,0,0,0.10)] before:pointer-events-none before:absolute before:inset-x-3 before:top-[2px] before:h-[38%] before:rounded-full before:bg-white/20";
+
+      return (
+        <div className="min-h-screen bg-[#120d11] text-[#f6efe8]">
+          <div className="fixed inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute -top-32 right-[-8rem] h-[30rem] w-[30rem] rounded-full bg-[#7d1530]/25 blur-3xl" />
+            <div className="absolute top-[38rem] left-[-8rem] h-[24rem] w-[24rem] rounded-full bg-[#d5b08b]/10 blur-3xl" />
+          </div>
+
+          <header className="sticky top-0 z-50 border-b border-white/10 bg-[#120d11]/75 backdrop-blur">
+            <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10 gap-4">
+              <div className="min-w-0">
+                <div className="text-[1rem] sm:text-[1.15rem] uppercase tracking-[0.35em] text-[#d8b58b]">{t.pageTitle}</div>
+                <div className="mt-1 text-[1rem] sm:text-[1.15rem] text-[#f6efe8]">{t.tagline}</div>
+                <div className="mt-4 text-2xl font-semibold leading-tight text-[#f6efe8] sm:text-3xl">{t.headline}</div>
+              </div>
+              <div className="flex flex-col items-end gap-3 flex-shrink-0">
+                <LangSwitcher lang={lang} setLang={setLang} />
+                <button className={ctaPrimary + " px-5 py-2 whitespace-nowrap"} onClick={handleCTA}>
+                  {t.ctaBtn}
+                </button>
+              </div>
+            </div>
+          </header>
+
+          <main className="relative">
+            {/* Hero */}
+            <section className="mx-auto max-w-7xl px-6 pb-16 pt-14 lg:px-10 lg:pt-20">
+              <div className="grid items-stretch gap-12 lg:grid-cols-[1.12fr_0.88fr]">
+                <div className="flex flex-col">
+                  <div className="mb-5 inline-flex items-center rounded-full border border-[#d8b58b]/30 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.28em] text-[#e0c09a]">
+                    {t.badge}
+                  </div>
+                  <h1 className="max-w-3xl text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl xl:text-7xl">
+                    {t.heroTitle1}
+                    <span className="block text-[#f6efe8]">{t.heroTitle2}</span>
+                  </h1>
+                  <p className="mt-6 max-w-2xl text-lg leading-8 text-white/74 sm:text-xl">{t.heroBody1}</p>
+                  <p className="mt-4 max-w-2xl text-base leading-7 text-[#f6efe8]">{t.heroBody2}</p>
+                  <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                    <button className={ctaPrimary} onClick={handleCTA}>{t.ctaBtn}</button>
+                  </div>
+                  <div className="flex-1" />
+                </div>
+                <div className="relative flex flex-col">
+                  <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-[#7d1530]/30 via-transparent to-[#d8b58b]/20 blur-2xl" />
+                  <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#140f13]/75 shadow-[14px_14px_34px_rgba(216,181,139,0.08),8px_0_22px_rgba(216,181,139,0.05)] p-3 shadow-2xl shadow-black/40 backdrop-blur-md flex-1">
+                    <div className="relative flex min-h-[640px] items-end rounded-[1.5rem] bg-transparent">
+                      <div className="relative z-10 w-full p-6">
+                        <div className="mx-auto flex h-[31rem] max-w-[24rem] items-center justify-center">
+                          <div className="text-center">
+                            <img
+                              src="en.jpg"
+                              alt="Founder portrait"
+                              onMouseEnter={(e) => { e.currentTarget.src = "hs.gif"; }}
+                              onMouseLeave={(e) => { e.currentTarget.src = "en.jpg"; }}
+                              className="mx-auto h-[31rem] w-full max-w-[24rem] object-cover object-center"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Bottom cards row — aligned and equal height */}
+              <div className="mt-10 grid items-stretch gap-12 lg:grid-cols-[1.12fr_0.88fr]">
+                <div className="rounded-[1.5rem] border border-white/10 bg-[#140f13]/75 shadow-[14px_14px_34px_rgba(216,181,139,0.08),8px_0_22px_rgba(216,181,139,0.05)] p-5 backdrop-blur-md">
+                  {t.stats.slice(0, 2).map((item, index) => (
+                    <div key={index} className={index !== 0 ? "mt-4" : ""}>
+                      <div className="text-2xl font-semibold text-[#f4e6d4]">{item.value}</div>
+                      <div className="mt-1 text-sm leading-6 text-white/58">{item.label}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="rounded-[1.5rem] border border-white/10 bg-[#140f13]/75 shadow-[14px_14px_34px_rgba(216,181,139,0.08),8px_0_22px_rgba(216,181,139,0.05)] p-5 backdrop-blur-md">
+                  <div className="text-2xl font-semibold text-[#f4e6d4]">{t.stats[2].value}</div>
+                  <div className="mt-1 text-sm leading-6 text-white/58">{t.stats[2].label}</div>
+                  <div className="mt-4 text-2xl font-semibold text-[#f4e6d4]">{t.strategicTitle}</div>
+                  <div className="mt-2 text-sm leading-6 text-white/58">{t.strategicBody}</div>
+                </div>
+              </div>
+            </section>
+
+            {/* Positioning */}
+            <section className="mx-auto max-w-7xl px-6 py-8 lg:px-10">
+              <div className="grid gap-6 rounded-[1.5rem] border border-white/10 bg-[#140f13]/75 shadow-[14px_14px_34px_rgba(216,181,139,0.08),8px_0_22px_rgba(216,181,139,0.05)] p-8 lg:grid-cols-[1fr_1fr] lg:p-10 backdrop-blur-md">
+                <div>
+                  <div className="text-sm uppercase tracking-[0.28em] text-[#d8b58b]">{t.sec2Kicker}</div>
+                  <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">{t.sec2Heading}</h2>
+                </div>
+                <div className="text-base leading-8 text-[#f6efe8]">{t.sec2Body}</div>
+              </div>
+            </section>
+
+            {/* For / Not For */}
+            <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+              <div className="grid items-stretch gap-8 lg:grid-cols-2">
+                <div className="rounded-[1.5rem] border border-white/10 bg-[#140f13]/75 shadow-[14px_14px_34px_rgba(216,181,139,0.08),8px_0_22px_rgba(216,181,139,0.05)] p-8 backdrop-blur-md">
+                  <div className="text-sm uppercase tracking-[0.28em] text-[#d8b58b]">{t.forKicker}</div>
+                  <h3 className="mt-3 text-3xl font-semibold">{t.forHeading}</h3>
+                  <div className="mt-6 flex h-full flex-col">
+                    <div className="space-y-4">
+                      {t.forYou.map((item, i) => (
+                        <div key={i} className="flex gap-4">
+                          <div className="mt-1 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-[#d8b58b]" />
+                          <p className="text-white/72">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-8">
+                      <button className={ctaPrimary} onClick={handleCTA}>{t.ctaBtn}</button>
+                    </div>
+                  </div>
+                </div>
+                <div className="rounded-[1.5rem] border border-white/10 bg-[#140f13]/75 shadow-[14px_14px_34px_rgba(216,181,139,0.08),8px_0_22px_rgba(216,181,139,0.05)] p-8 backdrop-blur-md">
+                  <div className="text-sm uppercase tracking-[0.28em] text-[#b77785]">{t.notKicker}</div>
+                  <h3 className="mt-3 text-3xl font-semibold">{t.notHeading}</h3>
+                  <div className="mt-6 space-y-4">
+                    {t.notForYou.map((item, i) => (
+                      <div key={i} className="flex gap-4">
+                        <div className="mt-1 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-[#8a3248]" />
+                        <p className="text-white/65">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* How it works */}
+            <section className="mx-auto max-w-7xl px-6 py-4 lg:px-10">
+              <div className="max-w-3xl">
+                <div className="text-sm uppercase tracking-[0.28em] text-[#d8b58b]">{t.howKicker}</div>
+                <h2 className="mt-3 text-4xl font-semibold sm:text-5xl">{t.howHeading}</h2>
+                <p className="mt-5 text-lg leading-8 text-white/68">{t.howBody}</p>
+              </div>
+              <div className="mt-10 grid gap-6">
+                {t.steps.map((step, index) => (
+                  <div key={index} className="rounded-[1.5rem] border border-white/10 bg-[#140f13]/75 shadow-[14px_14px_34px_rgba(216,181,139,0.08),8px_0_22px_rgba(216,181,139,0.05)] p-8 backdrop-blur-md">
+                    <div className="text-sm uppercase tracking-[0.28em] text-[#d8b58b]">{t.phase} 0{index + 1}</div>
+                    <h3 className="mt-6 text-2xl font-semibold">{step.title}</h3>
+                    <p className="mt-4 text-base leading-7 text-white/68">{step.body}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Role division */}
+            <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+              <div className="grid items-stretch gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+                <div className="rounded-[1.5rem] border border-white/10 bg-[#140f13]/75 shadow-[14px_14px_34px_rgba(216,181,139,0.08),8px_0_22px_rgba(216,181,139,0.05)] p-8 backdrop-blur-md">
+                  <div className="text-sm uppercase tracking-[0.28em] text-[#d8b58b]">{t.roleKicker}</div>
+                  <h2 className="mt-3 text-3xl font-semibold">{t.roleHeading}</h2>
+                  <div className="mt-6 grid grid-cols-2 gap-3 text-sm text-white/76">
+                    {t.roleItems.map((item) => (
+                      <div key={item} className="rounded-[1rem] border border-white/10 bg-[#140f13]/75 px-4 py-3 backdrop-blur-md">{item}</div>
+                    ))}
+                  </div>
+                  <p className="mt-6 text-base leading-8 text-[#f6efe8]">{t.roleBody}</p>
+                  <div className="mt-8">
+                    <button className={ctaPrimary} onClick={handleCTA}>{t.ctaBtn}</button>
+                  </div>
+                </div>
+                <div className="rounded-[1.5rem] border border-white/10 bg-[#140f13]/75 shadow-[14px_14px_34px_rgba(216,181,139,0.08),8px_0_22px_rgba(216,181,139,0.05)] p-8 backdrop-blur-md">
+                  <div className="text-sm uppercase tracking-[0.28em] text-[#d8b58b]">{t.buildKicker}</div>
+                  <h2 className="mt-3 text-3xl font-semibold">{t.buildHeading}</h2>
+                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                    {t.buildItems.map((item) => (
+                      <div key={item} className="rounded-[1rem] border border-white/10 bg-[#140f13]/75 px-4 py-3 backdrop-blur-md text-sm text-white/76">{item}</div>
+                    ))}
+                  </div>
+                  <p className="mt-6 text-base leading-8 text-white/68">{t.buildBody}</p>
+                </div>
+              </div>
+            </section>
+
+            {/* Premium positioning quote */}
+            <section className="mx-auto max-w-7xl px-6 py-4 lg:px-10">
+              <div className="rounded-[1.5rem] border border-white/10 bg-[#140f13]/75 shadow-[14px_14px_34px_rgba(216,181,139,0.08),8px_0_22px_rgba(216,181,139,0.05)] p-8 lg:p-12 backdrop-blur-md">
+                <div className="max-w-4xl">
+                  <div className="text-sm uppercase tracking-[0.28em] text-[#d8b58b]">{t.premKicker}</div>
+                  <h2 className="mt-3 text-4xl font-semibold sm:text-5xl">{t.premHeading}</h2>
+                  <p className="mt-6 text-lg leading-8 text-[#f6efe8]">{t.premBody}</p>
+                </div>
+              </div>
+            </section>
+
+            {/* Structure */}
+            <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+              <div className="grid items-stretch gap-8 lg:grid-cols-[1fr_0.9fr]">
+                <div className="rounded-[1.5rem] border border-white/10 bg-[#140f13]/75 shadow-[14px_14px_34px_rgba(216,181,139,0.08),8px_0_22px_rgba(216,181,139,0.05)] p-8 backdrop-blur-md flex h-full flex-col justify-between">
+                  <div>
+                    <div className="text-sm uppercase tracking-[0.28em] text-[#d8b58b]">{t.structKicker}</div>
+                    <h2 className="mt-3 text-4xl font-semibold">{t.structHeading}</h2>
+                    <p className="mt-6 text-lg leading-8 text-white/68">{t.structBody1}</p>
+                    <p className="mt-5 text-lg leading-8 text-white/68">{t.structBody2}</p>
+                  </div>
+                  <div className="mt-8">
+                    <button className={ctaPrimary} onClick={handleCTA}>{t.ctaBtn}</button>
+                  </div>
+                </div>
+                <div className="rounded-[1.5rem] border border-white/10 bg-[#140f13]/75 shadow-[14px_14px_34px_rgba(216,181,139,0.08),8px_0_22px_rgba(216,181,139,0.05)] p-8 backdrop-blur-md">
+                  <div className="text-sm uppercase tracking-[0.28em] text-[#d8b58b]">{t.selKicker}</div>
+                  <h3 className="mt-3 text-3xl font-semibold">{t.selHeading}</h3>
+                  <div className="mt-6 space-y-4 text-white/72">
+                    {t.selItems.map((item, i) => <p key={i}>{item}</p>)}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* FAQ */}
+            <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+              <div className="max-w-3xl">
+                <div className="text-sm uppercase tracking-[0.28em] text-[#d8b58b]">{t.faqKicker}</div>
+                <h2 className="mt-3 text-4xl font-semibold">{t.faqHeading}</h2>
+              </div>
+              <div className="mt-10 grid gap-4">
+                {t.faqs.map((item, i) => (
+                  <div key={i} className="rounded-[1.5rem] border border-white/10 bg-[#140f13]/75 shadow-[14px_14px_34px_rgba(216,181,139,0.08),8px_0_22px_rgba(216,181,139,0.05)] p-6 backdrop-blur-md">
+                    <h3 className="text-xl font-semibold">{item.q}</h3>
+                    <p className="mt-3 max-w-4xl text-base leading-7 text-white/68">{item.a}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Final CTA */}
+            <section className="mx-auto max-w-7xl px-6 pb-24 lg:px-10">
+              <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#140f13]/75 shadow-[14px_14px_34px_rgba(216,181,139,0.08),8px_0_22px_rgba(216,181,139,0.05)] p-10 lg:p-14 backdrop-blur-md">
+                <div className="max-w-4xl">
+                  <div className="text-sm uppercase tracking-[0.28em] text-[#d8b58b]">{t.finalKicker}</div>
+                  <h2 className="mt-3 text-4xl font-semibold leading-tight sm:text-5xl">{t.finalHeading}</h2>
+                  <p className="mt-6 text-lg leading-8 text-white/72">{t.finalBody}</p>
+                  <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                    <button className={ctaPrimary} onClick={handleCTA}>{t.ctaBtn}</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<PremiumCreatorLanding />);
+  </script>
+</body>
+</html>
